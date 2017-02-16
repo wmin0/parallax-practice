@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<style>
+.cover {
+  min-height: 900px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.first-bg {
+  background-image: url('./firstBG.jpg');
+}
+.second-bg {
+  background-image: url('./secondBG.jpg');
+}
+.trainers {
+  width: 130px;
+  height: 90px;
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  background-size: cover;
+  background-image: url('./trainers.png');
+}
+.content {
+  position: relative;
+  background-attachment: fixed;
+}
+body {
+  margin: 0;
+}
+</style>
+</head>
+<body>
+<div class="cover first-bg">
+  <div class="trainers"></div>
+</div>
+<div class="content">123</div>
+<div class="cover second-bg"></div>
+</body>
+</html>

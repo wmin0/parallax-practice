@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<style>
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.layer {
+  position: absolute;
+  padding: 100vh 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.layer.base {
+  transform: translateZ(0);
+}
+.layer.back {
+  transform: translateZ(-1px);
+}
+.first-bg, .second-bg, .trainers {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.first-bg {
+  background-image: url('./firstBG.jpg');
+}
+.second-bg {
+  background-image: url('./secondBG.jpg');
+}
+.trainers {
+  width: 130px;
+  height: 90px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  background-image: url('./trainers.png');
+}
+body {
+  margin: 0;
+}
+</style>
+</head>
+<body>
+<div class="parallax">
+  <div class="layer back first-bg"></div>
+  <div class="layer base">
+    <div class="trainers"></div>
+  </div>
+</div>
+</body>
+</html>

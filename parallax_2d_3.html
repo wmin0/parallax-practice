@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<style>
+.cover {
+  min-height: 1800px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.first-bg {
+  background-image: url('./firstBG.jpg');
+}
+.second-bg {
+  background-image: url('./secondBG.jpg');
+}
+.trainers {
+  width: 130px;
+  background-size: 130px 90px;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 600px;
+  background-image: url('./trainers.png');
+}
+.trainers.fast {
+  left: 50px;
+  height: 400px;
+}
+.trainers.slow {
+  left: 180px;
+  height: 600px;
+}
+.content {
+  position: relative;
+  background-attachment: fixed;
+}
+body {
+  margin: 0;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  let items = document.querySelectorAll('.item');
+  let body = document.body;
+  console.log(items);
+  document.addEventListener('scroll', () => {
+    let viewTop = body.scrollTop;
+    let viewBottom = body.scrollTop + window.innerHeight;
+    let viewHeight = window.innerHeight;
+    items.forEach((item) => {
+      let itemTop = item.offsetTop;
+      let itemBottom = item.offsetTop + item.offsetHeight;
+      let itemHeight = item.offsetHeight;
+      if (
+        (itemTop >= viewTop && itemTop <= viewBottom) ||
+        (itemTop <= viewTop && itemBottom >= viewBottom) ||
+        (itemBottom >= viewTop && itemBottom <= viewBottom)
+      ) {
+        let backgroundY = (viewBottom - itemTop) / (itemHeight + viewHeight) * 100;
+        item.style.backgroundPositionY = backgroundY + '%';
+      }
+    })
+  });
+});
+</script>
+</head>
+<body>
+<div class="cover first-bg">
+  <div class="trainers item fast"></div>
+  <div class="trainers item slow"></div>
+</div>
+<div class="content">123</div>
+<div class="cover second-bg"></div>
+</body>
+</html>
